@@ -1,11 +1,10 @@
-///
-/// Filters
-/// -------------------------------------------------------------------------------------------------------------------
-/// <reference path="_references.ts" />
-angular.module('app.filters', []).filter('interpolate', [
-    'version', function (version) {
-        return function (text) {
-            return String(text).replace(/\%VERSION\%/mg, version);
+'use strict';
+
+/* Filters */
+
+angular.module('userAdminFilters', []).
+    filter('checkmark', function() {
+        return function(input) {
+            return input ? '\u2713' : '\u2718';
         };
-    }]);
-//# sourceMappingURL=filters.js.map
+    });

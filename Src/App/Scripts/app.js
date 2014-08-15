@@ -1,11 +1,34 @@
-///
-/// AngularJS Modules
-/// -------------------------------------------------------------------------------------------------------------------
-/// <reference path="_references.ts" />
-// Declare app level module which depends on filters, and services
-angular.module('app', ['ngRoute', 'app.filters', 'app.services', 'app.directives', 'app.controllers']).config([
-    '$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
-        $locationProvider.html5Mode(true);
-        $routeProvider.when('/view1', { templateUrl: 'views/view1', controller: 'FirstCtrl' }).when('/view2', { templateUrl: 'views/view2', controller: 'SecondCtrl' }).otherwise({ redirectTo: '/view1' });
+'use strict';
+
+/* App Module */
+
+var incidentApp = angular.module('incidentApp', [
+    'ngRoute',
+    'incidentControllers',
+    //'incidentFilters',
+    'incidentServices'
+]);
+
+
+incidentApp.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.
+            when('/incidentLists', {
+                templateUrl: 'partials/incidentlist.html',
+                controller: 'incidentListCtrl'
+            }).
+            when('/add', {
+                templateUrl: 'partials/signup.html',
+                controller: 'incidentAddCtrl'
+            }).
+            when('/incident/:id', {
+                templateUrl: 'partials/incidentdetail.html',
+                controller: 'incidentDetailCtrl'
+            }).
+            otherwise({
+                redirectTo: '/incidentLists'
+            });
     }]);
-//# sourceMappingURL=app.js.map
+
+
+

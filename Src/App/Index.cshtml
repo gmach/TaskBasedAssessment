@@ -1,14 +1,14 @@
 ﻿@using System.Web.Optimization
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en" ng-app="incidentApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>AngularJS App</title>
+    <title>Incident App</title>
     @Styles.Render("~/css/app")
-
+    <link href="css/app.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -17,50 +17,23 @@
     <![endif]-->
 </head>
 <body>
-    <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Project name</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/">Home</a></li>
-                    <li><a href="/view1">View 1</a></li>
-                    <li><a href="/view2">View 2</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Hello World</a></li>
-                </ul>
-            </div><!--/.nav-collapse -->
-        </div>
-    </div>
-    <div class="container">
-        <div ng-view></div>
-    </div> <!-- /container -->
+<div id="maindiv" ng-view></div>
+
+
+</div> <!-- /container -->
 
     <footer class="container">
         <hr />
         <p>© Company 2014 - v<span app-version></span></p>
     </footer>
     @Scripts.RenderFormat("<script src=\"{0}\"></script>", "~/js/angular", "~/js/jquery", "~/js/bootstrap", "~/js/app")
+
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-resource.js"></script>
+<script src="lib/angular/angular-route.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/filters.js"></script>
+<script src="js/services.js"></script>
 </body>
 </html>
